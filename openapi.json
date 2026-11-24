@@ -1,0 +1,858 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "CueFleet Local Trading API",
+    "version": "1.1.0",
+    "description": "Local desktop gateway. Not a Binance official API. Real funds are used only if explicitly enabled in the desktop. Decimal amounts and exchange IDs are strings. No automatic order retries."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:17687"
+    }
+  ],
+  "security": [
+    {
+      "LocalKey": []
+    }
+  ],
+  "paths": {
+    "/v1/health": {
+      "get": {
+        "summary": "Local service status",
+        "responses": {
+          "200": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/v1/accounts": {
+      "get": {
+        "summary": "Authorized accounts",
+        "responses": {
+          "200": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          }
+        },
+        "description": "Each account includes availableUsdt (decimal string or null), openOrders (integer or null), submitting, capacity=5, checkedAt, stale, state and existing identity/permission fields. Unknown balances and counts are never returned as zero."
+      }
+    },
+    "/v1/accounts/{accountId}/market": {
+      "get": {
+        "summary": "Current payouts and market limits",
+        "responses": {
+          "200": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
+      }
+    },
+    "/v1/accounts/{accountId}/orders": {
+      "get": {
+        "summary": "Open positions and paginated closed orders",
+        "responses": {
+          "200": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000,
+              "default": 1
+            }
+          }
+        ]
+      }
+    },
+    "/v1/orders": {
+      "post": {
+        "summary": "Place one event contract order",
+        "responses": {
+          "200": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "426": {
+            "description": "client_upgrade_required. Upgrade CueFleet before creating new orders. No exchange order was sent.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Persist one UUID per intent. Never resend an uncertain intent under a new UUID."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Order"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/requests/{requestId}": {
+      "get": {
+        "summary": "Read a durable API request receipt",
+        "responses": {
+          "200": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "requestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
+      }
+    },
+    "/v1/openapi.json": {
+      "get": {
+        "summary": "OpenAPI document",
+        "responses": {
+          "200": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/status": {
+      "get": {
+        "summary": "Configured account mode, routing strategy, authorized balances and open-order concurrency",
+        "responses": {
+          "200": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "JSON response; inspect data.state for business outcome.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "LocalKey": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "ef1_<random base64url>"
+      }
+    },
+    "schemas": {
+      "Envelope": {
+        "type": "object",
+        "required": [
+          "ok",
+          "traceId"
+        ],
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          },
+          "data": {},
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              }
+            }
+          },
+          "traceId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "Order": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "symbol",
+          "direction",
+          "amount",
+          "period",
+          "payoutRatio"
+        ],
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Optional authorized account UUID. Omit for automatic routing using the configured single/dual mode and balanced/sequential strategy. Retries stay on the original account."
+          },
+          "symbol": {
+            "type": "string",
+            "enum": [
+              "ETHUSDT",
+              "BTCUSDT"
+            ]
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "LONG",
+              "SHORT"
+            ]
+          },
+          "amount": {
+            "type": "string",
+            "pattern": "^\\d{1,24}(\\.\\d{1,18})?$",
+            "description": "Positive amount satisfying current market limits and local cap."
+          },
+          "period": {
+            "type": "string",
+            "enum": [
+              "10m",
+              "30m",
+              "1h",
+              "1d"
+            ]
+          },
+          "wallet": {
+            "type": "string",
+            "enum": [
+              "UM"
+            ],
+            "default": "UM",
+            "description": "USD-M wallet only. Defaults to UM when omitted."
+          },
+          "payoutRatio": {
+            "type": "string",
+            "pattern": "^\\d{1,24}(\\.\\d{1,18})?$",
+            "description": "Current payout ratio for the exact symbol, period and direction, read from market."
+          }
+        }
+      }
+    }
+  }
+}
